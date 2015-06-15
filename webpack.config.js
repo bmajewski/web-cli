@@ -7,7 +7,7 @@ var production = process.env.CLI_ENV === "production";
 
 var entry = [path.resolve(config.mainPath)];
 if (!production) {
-    entry.unshift("webpack/hot/dev-server", "webpack-dev-server/client?http://127.0.0.1:" + config.prod.port);
+    entry.unshift("webpack/hot/dev-server", "webpack-dev-server/client?http://127.0.0.1:" + config.port.prod);
 }
 var webpackConfig = {
     devtool: production ? "source-map" : "eval",

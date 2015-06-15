@@ -8,13 +8,9 @@
     { "path": "/api/*", "target": "http://localhost:6969" }
   ],
 
-  "dev" : {
-    "port": 1337,
-    "webpackConfig" : "./webpack.config.js"
-  },
-
-  "prod" : {
-    "port": 8080,
-    "webpackConfig" : "./webpack.production.config.js"
+  "port" : {
+    "prod": 8080,
+    "dev": 1337
   }
+
 }

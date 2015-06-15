@@ -11,7 +11,7 @@ var app = express();
 
 
 var production = process.env.CLI_ENV === "production";
-var port = production ? config.prod.port :  config.dev.port;
+var port = production ? config.port.prod :  config.port.dev;
 var publicPath = path.resolve(__dirname, config.publicPath);
 
 app.use(morgan(production ? "combined" : "dev"));
@@ -31,7 +31,7 @@ if (!production){
     bundler();
 
     app.all("/" + config.buildPath + "/*", function(req,res){
-       proxy.web(req, res,{target: "http://localhost:" + config.prod.port});
+       proxy.web(req, res,{target: "http://localhost:" + config.port.prod});
     });
 } else {
     console.log("Initiating Production Build");
